@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import{ useEffect, useState} from 'react';
+import Chart from './components/PackChart';
 
 function App() {
   const [pack, setpack] = useState({});
@@ -18,9 +19,12 @@ function App() {
     })()
   },[]
   )
+  
+  
   return (
     <div className="App">
         <h1> {pack.name} </h1>
+        {/* <Chart/> */}
         {pack.catagories? pack.catagories.map(catagory => {
           return(
             <div className='catagory-container'>
