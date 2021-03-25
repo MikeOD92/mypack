@@ -23,7 +23,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.catagory-container{
+  border: 1px solid black;
+}
+ul{
+  list-style: none;
+}
 .App-link {
   color: #61dafb;
 }
