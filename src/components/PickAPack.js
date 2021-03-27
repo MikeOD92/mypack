@@ -45,6 +45,8 @@ const PickAPack = () => {
             setPackList([...packList, data]);
         }catch(error){
             console.error(error)
+        }finally{
+            packName.current.value = '';
         }
     }
 
