@@ -1,7 +1,7 @@
-import React from 'react';
-import Chart from 'chart.js';
-import  {useEffect, useState} from 'react';
-const PackChart = () => {
+// import React from 'react';
+// import Chart from 'chart.js';
+// import  {useEffect, useState} from 'react';
+// const PackChart = () => {
 
     // const [pack, setPack] = useState({});
 
@@ -41,11 +41,11 @@ const PackChart = () => {
     //         })
     //     }
     
-    return (
-        <>
-        <h1> Pack </h1>
-        <canvas id='chart' width="500" height="500"></canvas>
-        </>
-    )
-}
-export default PackChart
+//     return (
+//         <>
+//         <h1> Pack </h1>
+//         <canvas id='chart' width="500" height="500"></canvas>
+//         </>
+//     )
+// }
+// export default PackChart

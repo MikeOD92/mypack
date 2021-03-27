@@ -1,31 +1,40 @@
 import './App.css';
 import React from 'react';
-import{ useEffect, useState} from 'react';
-import Chart from './components/PackChart';
+//import{ useEffect, useState, useRef} from 'react';
+// import Chart from './components/PackChart';
+import PickAPack from './components/PickAPack';
 
 function App() {
-  const [pack, setpack] = useState({});
+ 
+  // const [pack, setpack] = useState({});
+  // const activePack = useRef(null);
 
-  useEffect(()=>{
-    ( async ()=>{
-      try{
-        const response = await fetch('http://localhost:3001/packs/3');
-        const data = await response.json();
-        setpack(data)
-      }catch(err){
-        console.error(err)
-      }
 
-    })()
-  },[]
-  )
-  
+  // useEffect(()=>{
+  //   const parsePackID = activePack.current.value.key
+  //   ( async ()=>{
+  //     try{
+  //       const response = await fetch(`http://localhost:3001/packs${parsePackID}`);
+  //       const data = await response.json();
+  //       setPackList(data)
+  //     }catch(err){
+  //       console.error(err)
+  //     }
+
+  //   })()
+  // },[activePack]
+  // )
   
   return (
     <div className="App">
-        <h1> {pack.name} </h1>
+      <PickAPack/>
+      {/* //////////////////// */}
+
+      
+
         {/* <Chart/> */}
-        {pack.catagories? pack.catagories.map(catagory => {
+
+        {/* {pack.catagories? pack.catagories.map(catagory => {
           return(
             <div className='catagory-container'>
               <h2>{catagory.name}</h2>
@@ -41,7 +50,7 @@ function App() {
               }.oz</h4>
             </div>
           )
-        }): ''}
+        }): ''}  */}
 
     </div>
   );
