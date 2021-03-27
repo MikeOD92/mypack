@@ -56,20 +56,20 @@ const PickAPack = () => {
         <label> Pack </label> <select ref={activePack}>
         {packList.map(item => {
             return(
-            <option key={item.id} value={item.id}> {item.name} </option>
+            <option key={`${item.id}${item.name}`} value={item.id}> {item.name} </option>
         )
         })}
         </select>
             <input type='submit' value="view pack"/>
         </form>
+        {/* ///////////New Pack from///////////// */}
         <div className='newpack-module'>
-
             <form onSubmit={createPack}>
                 Pack Name: <input ref={packName} type="string"/>
                 <input type='submit' value='create pack'/>
             </form>
         </div>
-            
+        {/* ////////// View pack component//////////// */}
             {activePack.current? <Pack packId={packstate}/> : ""}
         </div>
     )
