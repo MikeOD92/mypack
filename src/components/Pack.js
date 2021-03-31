@@ -6,41 +6,42 @@ import CatagoryComponent from './Catagory'
 
 const Pack = (props) => {
 
-    const [pack, setPack] = useState({});
+    const [currentPack, setPack] = useState({});
+    
     const catName = useRef(null)
     
     useEffect(()=>{
-        ( async ()=>{
+            ( async ()=>{
             try{
                 const response = await fetch(`http://localhost:3001/packs/${props.packId}`);
                 const data = await response.json();
                 setPack(data)
-                await catsAndWeights() 
-                
+
             }catch(err){
                 console.error(err)
             }
             
-        })()
-    },[props.packId]
+        })()  
+        }
+    ,[props.packId]
     )
-    const catagories = [];
-    const weights = [];
+    // const catagories = [];
+    // const weights = [];
 
-    const catsAndWeights = () => {
-        pack.catagories.forEach(catagory => catagories.push(catagory.name)
-        )
-        pack.catagories.map(catagory => weights.push(catagory.items.reduce(function(result, index){
-            return result + index.weight;
-                }, 0)));
-        console.log(catagories);
-        console.log(weights);
-        ///// probably going to need to calc the total weight and percentages to get the chart right 
-    }
+    // const catsAndWeights = () => {
+    //     currentPack.catagories.forEach(catagory => catagories.push(catagory.name)
+    //     )
+    //     currentPack.catagories.map(catagory => weights.push(catagory.items.reduce(function(result, index){
+    //         return result + index.weight;
+    //             }, 0)));
+    //     console.log(catagories);
+    //     console.log(weights);
+    //     ///// probably going to need to calc the total weight and percentages to get the chart right 
+    // }
     const newCatagory = async e =>{
         e.preventDefault();
         try{
-            const response = await fetch('http://localhost:3001/catagories/', {
+            const response = await fetch(`http://localhost:3001/packs/${props.packId}/catagories/`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -50,7 +51,7 @@ const Pack = (props) => {
                 })
             })
             const data = await response.json();
-            // setPackList([...packList, data]);
+            setPack([...data]);
         }catch(error){
             console.error(error)
         }finally{
@@ -59,13 +60,13 @@ const Pack = (props) => {
     }
     return(
         <div>
-            {pack.name? <h1> {pack.name} </h1> : ''}
+            {currentPack.name? <h1> {currentPack.name} </h1> : ''}
 
             {/* <PackChart cats={catagories} weight={weights}/> */}
 
-            {pack.catagories? pack.catagories.map(catagory => {
+            {currentPack.catagories? currentPack.catagories.map(catagory => {
                 return (
-                <CatagoryComponent info={catagory}/>
+                <CatagoryComponent packId={props.packId} info={catagory.id}/>
                 )
                 }
                 ): ''}

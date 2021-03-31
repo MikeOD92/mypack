@@ -3,10 +3,10 @@ import{ useEffect, useState, useRef} from 'react';
 import Pack from './Pack';
 
 
-const PickAPack = () => {
+const Selector = () => {
 
     const [packList, setPackList] = useState([]);
-    const [packstate, setPackState] = useState('');
+    const [thisPack, setThisPack] = useState({});
 
     const activePack = useRef(null);
     const packName = useRef(null);
@@ -26,7 +26,7 @@ const PickAPack = () => {
 
     const viewPack = (e) => {
         e.preventDefault();
-        setPackState([...activePack.current.value]);
+        setThisPack(activePack.current.value);
     }
 
     const createPack = async e =>{
@@ -72,8 +72,8 @@ const PickAPack = () => {
             </form>
         </div>
         {/* ////////// View pack component//////////// */}
-            {packstate? <Pack packId={packstate}/> : ""}
+            {thisPack[0]? <Pack packId={thisPack}/> : ""}
         </div>
     )
 }
-export default PickAPack;
+export default Selector;
