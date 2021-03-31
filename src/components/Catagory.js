@@ -58,12 +58,7 @@ const CatagoryComponent = (props) => {
                     <li>{item.name} : {item.des} : {item.weight}oz </li>
                 )})}
             </ul>:''}
-            <form onSubmit={newItem}>
-                <label> Name </label><input type="text" ref={name}/>
-                <label> description </label><input type="text" ref={descript}/>
-                <label> weight oz </label><input type="float" ref={weight}/> 
-                <input type="submit" value="add item"/>
-            </form>
+            
         </div>
         )
     }        
