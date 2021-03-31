@@ -17,7 +17,7 @@ const CatagoryComponent = (props) => {
                 console.error(err)
             }
         })()
-    },[catagory])
+    },[props.packId, props.info])
 
     const name = useRef(null);
     const descript = useRef(null);
@@ -39,7 +39,7 @@ const CatagoryComponent = (props) => {
                 })
             })
             const data = await response.json();
-            setCatagory(...catagory, data);
+            setCatagory(catagory, data);
         }catch(error){
             console.error(error)
         }finally{
@@ -50,21 +50,22 @@ const CatagoryComponent = (props) => {
     }
 
         return(
-        <div className='catagory-container'>
-            <h3> {catagory.name}</h3>
-        { catagory.items? <ul>
-            {catagory.items.map((item)=>{
-            return(
-                <li>{item.name} : {item.dis} : {item.weight}oz </li>
-            )})}
-        </ul>:''}
-        <form onSubmit={newItem}>
-            <label> Name </label><input type="text" ref={name}/>
-            <label> description </label><input type="text" ref={descript}/>
-            <label> weight oz </label><input type="float" ref={weight}/> 
-            <input type="submit" value="add item"/>
-        </form>
-        </div>)
+            <div className='catagory-container'>
+                <h3> {catagory.name}</h3>
+            { catagory.items? <ul>
+                {catagory.items.map((item)=>{
+                return(
+                    <li>{item.name} : {item.des} : {item.weight}oz </li>
+                )})}
+            </ul>:''}
+            <form onSubmit={newItem}>
+                <label> Name </label><input type="text" ref={name}/>
+                <label> description </label><input type="text" ref={descript}/>
+                <label> weight oz </label><input type="float" ref={weight}/> 
+                <input type="submit" value="add item"/>
+            </form>
+        </div>
+        )
     }        
 
 

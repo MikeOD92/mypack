@@ -51,7 +51,7 @@ const Pack = (props) => {
                 })
             })
             const data = await response.json();
-            setPack([...data]);
+            setPack([data]);
         }catch(error){
             console.error(error)
         }finally{
