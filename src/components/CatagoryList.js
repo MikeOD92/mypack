@@ -3,6 +3,7 @@ import {useRef, useState} from 'react';
 
 
 const CatagoryList = (props) =>{
+
     const name = useRef('');
     const descript = useRef('');
     const weight = useRef(0);
@@ -12,7 +13,7 @@ const CatagoryList = (props) =>{
     const newItem =  async e =>{
         e.preventDefault();
         try{
-            const response = await fetch(`http://localhost:3001/packs/${props.packId}/catagories/${e.target.id}/items`, {
+            const response = await fetch(`http://localhost:3001/packs/${props.packId}/catagories/${props.id}/items`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -34,31 +35,64 @@ const CatagoryList = (props) =>{
             weight.current.value = "weight"
         }
     }
-    let editable = '';
 
-    const editItem = (e) =>{
+    const editItem = async e =>{
         e.preventDefault();
-        return editable = e.target.id
-        
-    }
-    const removeItem = (e) =>{
-        e.preventDefault()
-        console.log(editable)
-    }
+        try{
+            const response = await fetch(`http://localhost:3001/packs/${props.packId}/catagories/${props.id}/items/${e.target.target}`, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: e.target[0].value,
+                    des: e.target[1].value,
+                    weight: e.target[2].value
+                })
+            })
+            const data = await response.json()
+            setCatagoryState(data);
+            }catch(error){
+                console.error(error)
+            }
+        }
+    const removeItem = async e =>{
+            e.preventDefault();
+                try{
+                    const response = await fetch(`http://localhost:3001/packs/${props.packId}/catagories/${props.id}/items/${e.target.id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    })
+                    const data = await response.json()
+                    setCatagoryState(data);
+                    }catch(error){
+                        console.error(error)
+                    }
+                }
+    
     return(
         <div>
-        <ul>
             {catagoryState.map(item => {
                     return(
-                    <li key={`${item.id}`}> {item.name} : {item.des} : {item.weight}.oz <button onClick={editItem} id={item.id}>edit</button> <button onClick={removeItem}>X</button></li>
+                        <div>
+                            <form target={item.id} onSubmit={editItem}  > 
+                                <input type='text' defaultValue={item.name} required={true}/>
+                                <input type='text' defaultValue={item.des} required={true}/>
+                                <input type='float' defaultValue={item.weight} required={true}/>
+                                <button onClick={removeItem} id={item.id}>X</button> 
+                                <input type='submit' value="edit"/>
+                            </form> 
+                        </div>
                 )}
                 
             )}
-        </ul>
+            <br/>
         <form onSubmit={newItem} id={props.id}>
-            <input type="text" ref={name} defaultValue='name'/>
-            <input type="text" ref={descript} defaultValue='description'/>
-            <input type="float" ref={weight} defaultValue='weight' /> 
+            <input type="text" ref={name} defaultValue='name' required={true}/>
+            <input type="text" ref={descript} defaultValue='description'required={true}/>
+            <input type="float" ref={weight} defaultValue='weight'required={true} /> 
             <input type="submit" value="add item"/>
         </form>
         </div>
