@@ -32,7 +32,11 @@ ul{
 .App-link {
   color: #61dafb;
 }
-
+.catagory-container{
+  border: 2px solid black;
+  margin: 3%;
+  padding: 15px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

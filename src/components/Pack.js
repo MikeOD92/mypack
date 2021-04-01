@@ -43,12 +43,12 @@ const Pack = (props) => {
                 }
         
     return(
-        <div>
+        <div className="pack">
             <h2>{props.name}</h2>
 
             {props.catagories? props.catagories.map((catagory)=>{
                 return(
-                    <div className={catagory.name} key={`${catagory.id}${catagory.name}`}>
+                    <div className={`${catagory.name} catagory-container`} key={`${catagory.id}${catagory.name}`}>
 
                         <form onSubmit={updateCatagory} target={catagory.id}>
                             <input ref={editCatagoryName} defaultValue={catagory.name} type="text"></input>
