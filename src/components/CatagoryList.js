@@ -19,7 +19,7 @@ const CatagoryList = (props) =>{
                 },
                 body: JSON.stringify({
                     name: name.current.value,
-                    dis: descript.current.value,
+                    des: descript.current.value,
                     weight: weight.current.value,
                     catagory: e.target.id,
                 })
@@ -29,24 +29,36 @@ const CatagoryList = (props) =>{
         }catch(error){
             console.error(error)
         }finally{
-            name.current.value = ""
-            descript.current.value = ""
-            weight.current.value = ""
+            name.current.value = "name"
+            descript.current.value = "description"
+            weight.current.value = "weight"
         }
+    }
+    let editable = '';
+
+    const editItem = (e) =>{
+        e.preventDefault();
+        return editable = e.target.id
+        
+    }
+    const removeItem = (e) =>{
+        e.preventDefault()
+        console.log(editable)
     }
     return(
         <div>
         <ul>
             {catagoryState.map(item => {
-                return(
-                    <li key={`${item.id}${item.name}`}> {item.name} :: {item.weight}.oz </li>
-                )
-            })}
+                    return(
+                    <li key={`${item.id}`}> {item.name} : {item.des} : {item.weight}.oz <button onClick={editItem} id={item.id}>edit</button> <button onClick={removeItem}>X</button></li>
+                )}
+                
+            )}
         </ul>
         <form onSubmit={newItem} id={props.id}>
-            <label> Name </label><input type="text" ref={name}/>
-            <label> description </label><input type="text" ref={descript}/>
-            <label> weight</label><input type="float" ref={weight}/> 
+            <input type="text" ref={name} defaultValue='name'/>
+            <input type="text" ref={descript} defaultValue='description'/>
+            <input type="float" ref={weight} defaultValue='weight' /> 
             <input type="submit" value="add item"/>
         </form>
         </div>
