@@ -71,7 +71,16 @@ const CatagoryList = (props) =>{
                         console.error(error)
                     }
                 }
-    
+    let acc = 0;
+
+    const weights = () =>{
+        catagoryState.forEach(element => {
+            acc = element.weight + acc
+            return acc
+        });
+    }
+    weights();
+
     return(
         <div>
             {catagoryState.map(item => {
@@ -81,19 +90,20 @@ const CatagoryList = (props) =>{
                                 <input type='text' defaultValue={item.name} required={true}/>
                                 <input type='text' defaultValue={item.des} required={true}/>
                                 <input type='float' defaultValue={item.weight} required={true}/>
-                                <button onClick={removeItem} id={item.id}>X</button> 
+                                <button onClick={removeItem} id={item.id}>x</button> 
                                 <input type='submit' value="edit"/>
                             </form> 
                         </div>
                 )}
                 
             )}
+            <p> total: {acc}oz </p>
             <br/>
         <form onSubmit={newItem} id={props.id}>
             <input type="text" ref={name} defaultValue='name' required={true}/>
             <input type="text" ref={descript} defaultValue='description'required={true}/>
             <input type="float" ref={weight} defaultValue='weight'required={true} /> 
-            <input type="submit" value="add item"/>
+            <input type="submit" value="+"/>
         </form>
         </div>
     )
