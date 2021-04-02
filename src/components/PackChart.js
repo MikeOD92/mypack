@@ -29,7 +29,7 @@ const PackChart = (props) => {
         }
         
         data.catagories.forEach(catagory => {
-            
+
             ChartData.labels.push(catagory.name)
             
             // ChartData.labels.push(catagory.id)
@@ -58,7 +58,7 @@ const PackChart = (props) => {
     return (
         <>
         <h1> Pack Graph</h1>
-        <canvas id='packChart' width="100" height="100"></canvas>
+        <canvas id='packChart'></canvas>
         </>
     )
 }
