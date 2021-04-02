@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRef} from 'react';
 import CatagoryList from './CatagoryList';
+import PackChart from './PackChart';
 
 const Pack = (props) => {
 
@@ -45,7 +46,7 @@ const Pack = (props) => {
     return(
         <div className="pack">
             <h2>{props.name}</h2>
-
+            <PackChart packId={props.packId}/>
             {props.catagories? props.catagories.map((catagory)=>{
                 return(
                     <div className={`${catagory.name} catagory-container`} key={`${catagory.id}${catagory.name}`}>
@@ -55,7 +56,7 @@ const Pack = (props) => {
                             <input type="submit" value="update"/>
                             <button onClick={deleteCatagory} value={catagory.id}>X</button>
                         </form>
-
+                    
                         <CatagoryList items={catagory.items}
                                         id={catagory.id}
                                         packId={props.packId}
