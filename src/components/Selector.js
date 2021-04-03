@@ -99,13 +99,13 @@ const Selector = () => {
         )
         })}
         </select>
-            <input type='submit' value="view pack"/>
+            <input type='submit' value="view pack" />
         </form>
         {/* ///////////New Pack from///////////// */}
         <div className='newpack-module'>
             <form onSubmit={createPack}>
-                Pack Name: <input ref={packName} type="string"/>
-                <input type='submit' value='create pack'/>
+                Pack Name: <input ref={packName} type="string" required={true}/>
+                <input type='submit' value='create pack' />
             </form>
         </div>
         {/* ////////// View pack component//////////// */}
@@ -117,7 +117,7 @@ const Selector = () => {
                                 activePack={activePack}
                                 setState={setActivePack}/> : ""}
                                 
-            {activePack? <form onSubmit={newCatagory}>
+            {activePack.id? <form onSubmit={newCatagory}>
                 <input type='text' ref={catName}/> 
                 <input type='submit' value='add catagory'/>
             </form> : ''}

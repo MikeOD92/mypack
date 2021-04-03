@@ -42,11 +42,32 @@ const Pack = (props) => {
                         console.error(error)
                     }
                 }
+        // instead of trying to calc the base weight in the chart doing it here and passing as props
+        // better for pack reload
         
+        let baseWeight = 0;
+
+        const getBaseWeight = (props) => {
+            let items = [];
+
+            props.catagories.forEach(catagory => {
+                items.push(...catagory.items)
+            });
+
+            items.forEach( item => {
+                baseWeight = item.weight + baseWeight;
+            })
+        
+            return baseWeight
+        }
+        
+        getBaseWeight(props);
+
     return(
         <div className="pack">
-            <h2>{props.name}</h2>
+            <h1>{props.name}</h1>
             <PackChart packId={props.packId}/>
+            <p> Base weight: {(baseWeight/16).toFixed(2)} lbs or {baseWeight.toFixed(2)}oz</p>
             {props.catagories? props.catagories.map((catagory)=>{
                 return(
                     <div className={`${catagory.name} catagory-container`} key={`${catagory.id}${catagory.name}`}>

@@ -40,6 +40,10 @@ ul{
 #packChart{
   width: 50%;
 }
+.reset-button{
+  width: 30px;
+  height: 30px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

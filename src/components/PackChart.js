@@ -4,27 +4,43 @@ import { useEffect } from 'react';
 
 const PackChart = (props) => {
 
+
     useEffect(()=>{ 
         const makeCall = async () => {
             try{
                 const res = await fetch(`http://localhost:3001/packs/${props.packId}`)
                 const data = await res.json();
-                await console.log(data.catagories[1].items)
+                // await setPackState(data)
                 const formattedData = prepData(data);
                 CreateChart(formattedData);
             } catch(err){
                 console.error(err)
-            }
+            } 
+            
+        
         }
         makeCall();
-    },[])
+     
+    },[props])
         // makes API call to get data format and prep
-    
+    const reset = async e => {
+            e.preventDefault();
+            try{
+                const res = await fetch(`http://localhost:3001/packs/${props.packId}`)
+                const data = await res.json();
+                const formattedData = prepData(data);
+                CreateChart(formattedData);
+            } catch(err){
+                console.error(err)
+            } 
+            
+        }
+
     const prepData = (data) => {
         const ChartData = {
             labels: [],
             datasets: [
-                // {label:'', data: [], backgroundColor:'rgba(245,113,52,0.3)', borderColor:'red', drawBorder:true}
+                {label:'', data: [], backgroundColor:['teal', 'orange', 'purple', 'blue', 'green', 'red'], drawBorder:false}
             ]
         }
         
@@ -32,23 +48,19 @@ const PackChart = (props) => {
 
             ChartData.labels.push(catagory.name)
             
-            // ChartData.labels.push(catagory.id)
-
             let catWeight = 0;
             catagory.items.map(item => {
                 catWeight = item.weight + catWeight
                 return catWeight
             })
-            ChartData.datasets.push({label: catagory.name, data:[catWeight], backgroundColor: 'red'})
-            // ChartData.datasets.push(catWeight)
 
+            ChartData.datasets[0].data.push(catWeight)
         })
-        // for each props push into ChartData.datasets[016].push 
-        // ChartData.datasets[0].data.push([14,15,16])
+        
         return ChartData
     }
     const CreateChart = (data) => {
-        const ctx = document.querySelector('#packChart');
+        const ctx = document.querySelector('#packChart').getContext('2d');
         const packChart = new Chart(ctx, {
             type:'doughnut',
             data: data, 
@@ -57,8 +69,8 @@ const PackChart = (props) => {
 
     return (
         <>
-        <h1> Pack Graph</h1>
         <canvas id='packChart'></canvas>
+        <button className="reset-button"onClick={reset}> refresh </button>
         </>
     )
 }

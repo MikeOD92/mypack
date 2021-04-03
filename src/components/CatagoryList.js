@@ -97,7 +97,7 @@ const CatagoryList = (props) =>{
                 )}
                 
             )}
-            <p> total: {acc}oz </p>
+            <p> total: {acc.toFixed(2)}oz </p>
             <br/>
         <form onSubmit={newItem} id={props.id}>
             <input type="text" ref={name} defaultValue='name' required={true}/>
