@@ -1,27 +1,14 @@
+
 .App {
   text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 .catagory-container{
   border: 1px solid black;
@@ -29,20 +16,43 @@
 ul{
   list-style: none;
 }
-.App-link {
-  color: #61dafb;
-}
-.catagory-container{
-  border: 2px solid black;
-  margin: 3%;
-  padding: 15px;
-}
-#packChart{
-  width: 50%;
-}
+/* #packChart{
+  transform: scale(0.75);
+} */
 .reset-button{
   width: 30px;
   height: 30px;
+}
+.pack{
+  display: grid;
+  margin: 0 auto; 
+  grid-template-columns: 50vw 50vw;
+  grid-template-rows: auto;
+}
+.chart-container{
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.catagory-container{
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 10px;;
+
+}
+.catagory-container form{
+  padding: 7px;
+}
+input{
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 4px;
+}
+input:focus{
+  background-color: white;
+  color: black;
+
 }
 @keyframes App-logo-spin {
   from {

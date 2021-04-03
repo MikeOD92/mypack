@@ -65,12 +65,14 @@ const Pack = (props) => {
 
     return(
         <div className="pack">
-            <h1>{props.name}</h1>
-            <PackChart packId={props.packId}/>
-            <p> Base weight: {(baseWeight/16).toFixed(2)} lbs or {baseWeight.toFixed(2)}oz</p>
+            <div className="chart-container">
+                <h1>{props.name}</h1>
+                <PackChart packId={props.packId}/>
+                <p> Base weight: {(baseWeight/16).toFixed(2)} lbs or {baseWeight.toFixed(2)}oz</p>
+            </div>
             {props.catagories? props.catagories.map((catagory)=>{
                 return(
-                    <div className={`${catagory.name} catagory-container`} key={`${catagory.id}${catagory.name}`}>
+                    <div className={`${catagory.name}-container, catagory-container`} key={`${catagory.id}${catagory.name}`}>
 
                         <form onSubmit={updateCatagory} target={catagory.id}>
                             <input ref={editCatagoryName} defaultValue={catagory.name} type="text"></input>

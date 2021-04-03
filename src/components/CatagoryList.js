@@ -99,12 +99,14 @@ const CatagoryList = (props) =>{
             )}
             <p> total: {acc.toFixed(2)}oz </p>
             <br/>
-        <form onSubmit={newItem} id={props.id}>
-            <input type="text" ref={name} defaultValue='name' required={true}/>
-            <input type="text" ref={descript} defaultValue='description'required={true}/>
-            <input type="float" ref={weight} defaultValue='weight'required={true} /> 
-            <input type="submit" value="+"/>
-        </form>
+            <div className='new-item'>
+                <form onSubmit={newItem} id={props.id}>
+                    <input type="text" ref={name} defaultValue='name' required={true}/>
+                    <input type="text" ref={descript} defaultValue='description'required={true}/>
+                    <input type="float" ref={weight} defaultValue='weight'required={true} /> 
+                    <input type="submit" value="+"/>
+                </form>
+            </div>
         </div>
     )
 }
