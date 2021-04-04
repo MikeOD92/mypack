@@ -1,4 +1,12 @@
 
+body{
+  /* background-image: url(https://i.imgur.com/CBUjP5p.jpg); */
+  background-image: url(https://i.imgur.com/0TAEJV1.jpg);
+  background-size: cover;
+  background-position: middle;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 .App {
   text-align: center;
 
@@ -32,6 +40,16 @@ ul{
 .chart-container{
   grid-column-start: 1;
   grid-column-end: 3;
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 10px;;
+}
+.chart-container p{
+  background-color: rgba(0,0,0,0.6);
+  padding: 8px;
+  width:20vw;
 }
 .catagory-container{
   background-color: rgba(0,0,0,0.5);

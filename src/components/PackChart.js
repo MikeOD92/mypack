@@ -40,7 +40,7 @@ const PackChart = (props) => {
         const ChartData = {
             labels: [],
             datasets: [
-                {label:'', data: [], backgroundColor:[ 'orange','blue' , 'red','green', 'magenta', 'yellow'], drawBorder:false}
+                {label:'', data: [], backgroundColor:[ '#D6E3F8','#FFF07C', '#724E91', '#FE5E41', '#6BA292' , 'black'], borderColor:'rgba(0,0,0,0)', drawBorder:false}
             ]
         }
         
