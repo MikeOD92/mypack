@@ -4,9 +4,7 @@ import {useRef, useState} from 'react';
 
 const CatagoryList = (props) =>{
 
-    const name = useRef('');
-    const descript = useRef('');
-    const weight = useRef(0);
+
 
     const [catagoryState, setCatagoryState] = useState(props.items)
     
@@ -19,9 +17,9 @@ const CatagoryList = (props) =>{
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    name: name.current.value,
-                    des: descript.current.value,
-                    weight: weight.current.value,
+                    name: 'name', 
+                    des: 'description',
+                    weight: 0.0,
                     catagory: e.target.id,
                 })
             })
@@ -29,10 +27,6 @@ const CatagoryList = (props) =>{
             setCatagoryState(data);
         }catch(error){
             console.error(error)
-        }finally{
-            name.current.value = "name"
-            descript.current.value = "description"
-            weight.current.value = "weight"
         }
     }
 
@@ -85,28 +79,20 @@ const CatagoryList = (props) =>{
         <div>
             {catagoryState.map(item => {
                     return(
-                        <div>
+                        <div className="line-item">
                             <form target={item.id} onSubmit={editItem}  > 
                                 <input type='text' defaultValue={item.name} required={true}/>
                                 <input type='text' defaultValue={item.des} required={true}/>
-                                <input type='float' defaultValue={item.weight} required={true}/>
+                                <input type='float' defaultValue={item.weight} required={true} className="weight"/>
+                                <input type='submit' value="edit"/> 
                                 <button onClick={removeItem} id={item.id}>x</button> 
-                                <input type='submit' value="edit"/>
                             </form> 
                         </div>
                 )}
                 
             )}
             <p> total: {acc.toFixed(2)}oz </p>
-            <br/>
-            <div className='new-item'>
-                <form onSubmit={newItem} id={props.id}>
-                    <input type="text" ref={name} defaultValue='name' required={true}/>
-                    <input type="text" ref={descript} defaultValue='description'required={true}/>
-                    <input type="float" ref={weight} defaultValue='weight'required={true} /> 
-                    <input type="submit" value="+"/>
-                </form>
-            </div>
+            <label> add item: <button className='new-item'onClick={newItem}/></label>
         </div>
     )
 }

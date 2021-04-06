@@ -70,7 +70,8 @@ const Pack = (props) => {
                 <PackChart packId={props.packId}/>
                 <p> Base weight: {(baseWeight/16).toFixed(2)} lbs or {baseWeight.toFixed(2)}oz</p>
             </div>
-            {props.catagories? props.catagories.map((catagory)=>{
+            <div className='catagories-container'>
+   {props.catagories? props.catagories.map((catagory)=>{
                 return(
                     <div className={`${catagory.name}-container, catagory-container`} key={`${catagory.id}${catagory.name}`}>
 
@@ -90,6 +91,7 @@ const Pack = (props) => {
                     </div>
                         )
             }):""}
+            </div>
             
         </div>
     )

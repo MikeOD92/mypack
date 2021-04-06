@@ -6,6 +6,7 @@ body{
   background-position: middle;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-size: 26px;
 }
 .App {
   text-align: center;
@@ -18,9 +19,7 @@ body{
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.catagory-container{
-  border: 1px solid black;
-}
+
 ul{
   list-style: none;
 }
@@ -34,15 +33,16 @@ ul{
 .pack{
   display: grid;
   margin: 0 auto; 
-  grid-template-columns: 50vw 50vw;
+  grid-template-columns: 38vw 62vw;
   grid-template-rows: auto;
+
 }
 .chart-container{
-  grid-column-start: 1;
-  grid-column-end: 3;
+  position: fixed;
+  width: 33vw;
   background-color: rgba(0,0,0,0.3);
   color: white;
-  margin: 5px;
+  margin-left: 35px;
   padding: 15px;
   border-radius: 10px;;
 }
@@ -51,22 +51,55 @@ ul{
   padding: 8px;
   width:20vw;
 }
+.catagories-container{
+  grid-column-end: 4;
+  grid-column-start: 2;
+  margin-right:35px;
+}
 .catagory-container{
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.3);
   color: white;
-  margin: 5px;
+  font-size: 32px;
+  text-shadow: black 2px 2px;
+  margin-bottom: 35px;
   padding: 15px;
-  border-radius: 10px;;
+  border-radius: 10px;
 
 }
+button{
+  background-color: rgba(255, 0, 0, 0.6);
+  color: white;
+  text-shadow: black 2px 2px;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  /* padding: 3px; */
+  position: relative;
+  /* bottom: 12px; */
+  
+}
 .catagory-container form{
-  padding: 7px;
+  padding: 2px;
+  /* font-size: 16px; */
+}
+.line-item form{
+  width: 100%;
+}
+.catagory-container p{
+  background-color: rgba(0,0,0,0.6);
+  padding: 5px;
+  width: 30%;
 }
 input{
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.6);
   color: white;
-  padding: 4px;
+  padding: 10px;
+  font-size: 20px;
 }
+.weight{
+  width:30px;
+}
+
 input:focus{
   background-color: white;
   color: black;
