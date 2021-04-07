@@ -1,17 +1,19 @@
 import React from 'react';
 import Chart from 'chart.js';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const PackChart = (props) => {
 
+    const [baseWeight, setBaseWeight] = useState(0); 
 
     useEffect(()=>{ 
         const makeCall = async () => {
             try{
                 const res = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}`)
                 const data = await res.json();
-                // await setPackState(data)
                 const formattedData = prepData(data);
+                getBaseWeight(data);
+                console.log(baseWeight)
                 CreateChart(formattedData);
             } catch(err){
                 console.error(err)
@@ -29,7 +31,9 @@ const PackChart = (props) => {
                 const res = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}`)
                 const data = await res.json();
                 const formattedData = prepData(data);
+                getBaseWeight(data);
                 CreateChart(formattedData);
+                console.log(baseWeight)
             } catch(err){
                 console.error(err)
             } 
@@ -59,6 +63,22 @@ const PackChart = (props) => {
         
         return ChartData
     }
+
+    
+
+        const getBaseWeight = (data) => {
+            let items = [];
+            let weight = 0;
+            data.catagories.forEach(catagory => {
+                items.push(...catagory.items)
+            });
+
+            items.forEach( item => {
+                weight = item.weight + weight;
+            })
+            return setBaseWeight(weight)
+        }
+
     const CreateChart = (data) => {
         const ctx = document.querySelector('#packChart').getContext('2d');
         const packChart = new Chart(ctx, {
@@ -71,6 +91,7 @@ const PackChart = (props) => {
         <>
         <canvas id='packChart'></canvas>
         <br/>
+        <p> Base weight: {(baseWeight/16).toFixed(2)} lbs or {baseWeight.toFixed(2)}oz</p>
         <button className="reset-button"onClick={reset}/>  
         </>
     )
