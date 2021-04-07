@@ -70,7 +70,8 @@ const PackChart = (props) => {
     return (
         <>
         <canvas id='packChart'></canvas>
-        <button className="reset-button"onClick={reset}> refresh </button>
+        <br/>
+        <button className="reset-button"onClick={reset}/>  
         </>
     )
 }

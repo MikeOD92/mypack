@@ -1,4 +1,3 @@
-
 body{
   /* background-image: url(https://i.imgur.com/CBUjP5p.jpg); */
   background-image: url(https://i.imgur.com/0TAEJV1.jpg);
@@ -54,7 +53,8 @@ ul{
 .chart-container{
   position: fixed;
   width: 33vw;
-  background-color: rgba(0,0,0,0.3);
+  height: 82vh;
+  background-color: rgba(0,0,0,0.4);
   color: white;
   margin-left: 35px;
   padding: 15px;
@@ -62,8 +62,14 @@ ul{
 }
 .chart-container p{
   background-color: rgba(0,0,0,0.6);
+  position: relative;
+  top: 10%;
+  left: 20%;
   padding: 8px;
   width:20vw;
+}
+.reset-button{
+  background-color: whitesmoke;
 }
 .catagories-container{
   grid-column-end: 4;
@@ -93,10 +99,11 @@ button{
   bottom: 6px;
 }
 .new-item{
-  background-color: #6BA292;
+  background-color: #7bbaa8;
   border-radius: 50%;
   position: relative;
-  left: 308px;
+  left: -300px;
+  /* right: 308px; */
 }
 .catagory-container form{
   padding: 2px;
@@ -132,7 +139,9 @@ input, select{
 .new-catagory{
   position: relative;
   left: 55vw;
-  top: 20vh;
+  top: 13vh;
+  /* bottom: 35px; */
+  margin-bottom: 20px;
   width: 32%;
   padding: 15px;
   background-color: rgba(0,0,0,0.4);
