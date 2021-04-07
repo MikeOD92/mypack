@@ -75,7 +75,7 @@ const Pack = (props) => {
                 return(
                     <div className={`${catagory.name}-container, catagory-container`} key={`${catagory.id}${catagory.name}`}>
 
-                        <form onSubmit={updateCatagory} target={catagory.id}>
+                        <form className="catagory-name" onSubmit={updateCatagory} target={catagory.id}>
                             <input ref={editCatagoryName} defaultValue={catagory.name} type="text"></input>
                             <input type="submit" value="update"/>
                             <button onClick={deleteCatagory} value={catagory.id}>X</button>

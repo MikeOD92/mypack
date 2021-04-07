@@ -90,38 +90,42 @@ const Selector = () => {
 
     return(
         <div className="pack-choice">
+            <div className="header-bar">
                   {/* ///////////////DROP DOWN/////////////////// */}
-        <form onSubmit={viewPack}>
-        <label> Pack </label> <select ref={selectedPack}>
-        {packList.map(item => {
-            return(
-            <option key={`${item.id}${item.name}`} value={item.id}> {item.name} </option>
-        )
-        })}
-        </select>
-            <input type='submit' value="view pack" />
-        </form>
-        {/* ///////////New Pack from///////////// */}
-        <div className='newpack-module'>
-            <form onSubmit={createPack}>
-                Pack Name: <input ref={packName} type="string" required={true}/>
-                <input type='submit' value='create pack' />
+            <form onSubmit={viewPack}>
+            <select ref={selectedPack}>
+            {packList.map(item => {
+                return(
+                <option key={`${item.id}${item.name}`} value={item.id}> {item.name} </option>
+            )
+            })}
+            </select>
+                <input type='submit' value="view pack" />
             </form>
-        </div>
+            {/* ///////////New Pack from///////////// */}
+            <div className='newpack-module'>
+                <form onSubmit={createPack}>
+                    <input ref={packName} type="string" required={true}/>
+                    <input type='submit' value='create pack' />
+                </form>
+            </div>
         {/* ////////// View pack component//////////// */}
-
-            {activePack.id? <Pack 
-                                packId={thisPack}
-                                name={activePack.name}
-                                catagories={activePack.catagories}
-                                activePack={activePack}
-                                setState={setActivePack}/> : ""}
-                                
-            {activePack.id? <form onSubmit={newCatagory}>
-                <input type='text' ref={catName}/> 
-                <input type='submit' value='add catagory'/>
-            </form> : ''}
-        </div>
-    )
-}
+            </div>
+                {activePack.id? <Pack 
+                                    packId={thisPack}
+                                    name={activePack.name}
+                                    catagories={activePack.catagories}
+                                    activePack={activePack}
+                                    setState={setActivePack}/> : ""}
+                                    
+                {activePack.id? 
+                    <div className='new-catagory'>
+                        <form  onSubmit={newCatagory}>
+                            <input type='text' ref={catName}/> 
+                            <input type='submit' value='add catagory'/>
+                        </form>
+                    </div> : ''}
+            </div>
+        )
+    }
 export default Selector;

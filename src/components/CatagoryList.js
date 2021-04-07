@@ -1,5 +1,5 @@
 import React from 'react';
-import {useRef, useState} from 'react';
+import {useState} from 'react';
 
 
 const CatagoryList = (props) =>{
@@ -91,8 +91,9 @@ const CatagoryList = (props) =>{
                 )}
                 
             )}
-            <p> total: {acc.toFixed(2)}oz </p>
-            <label> add item: <button className='new-item'onClick={newItem}/></label>
+            <button className='new-item'onClick={newItem}>+</button>
+            <p> Total: {acc.toFixed(2)}oz </p>
+           
         </div>
     )
 }
