@@ -28,7 +28,7 @@ const Selector = () => {
     useEffect(()=>{
         ( async ()=>{
             try{
-                const packResponse = await fetch(`https://my-pack-api.herokuapp.com/packs/${thisPack}`);
+                const packResponse = await fetch(`https://my-pack-api.herokuapp.com/packs/${thisPack}/`);
                 const data = await packResponse.json();
                 setActivePack(data)
             }catch(err){

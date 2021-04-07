@@ -89,10 +89,10 @@ const PackChart = (props) => {
 
     return (
         <>
-        <canvas id='packChart'></canvas>
+        <canvas id='packChart'height="250px"></canvas>
         <br/>
-        <p> Base weight: {(baseWeight/16).toFixed(2)} lbs or {baseWeight.toFixed(2)}oz</p>
-        <button className="reset-button"onClick={reset}/>  
+        <p> Base weight: {(baseWeight/16).toFixed(2)} lbs / {baseWeight.toFixed(2)}oz</p>
+        <button className="reset-button"onClick={reset}/>
         </>
     )
 }
