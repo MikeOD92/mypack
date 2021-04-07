@@ -11,7 +11,7 @@ const Pack = (props) => {
             e.preventDefault();
             let id = e.target.target;
             try{
-                const response = await fetch(`http://localhost:3001/packs/${props.packId}/catagories/${id}`, {
+                const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}/catagories/${id}`, {
                     method: 'PUT',
                     headers: {
                         "Content-Type": "application/json"
@@ -30,7 +30,7 @@ const Pack = (props) => {
         const deleteCatagory = async e => {
             e.preventDefault();
                 try{
-                    const response = await fetch(`http://localhost:3001/packs/${props.packId}/catagories/${e.target.value}`, {
+                    const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}/catagories/${e.target.value}`, {
                         method: 'DELETE',
                         headers: {
                             "Content-Type": "application/json"

@@ -8,7 +8,7 @@ const PackChart = (props) => {
     useEffect(()=>{ 
         const makeCall = async () => {
             try{
-                const res = await fetch(`http://localhost:3001/packs/${props.packId}`)
+                const res = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}`)
                 const data = await res.json();
                 // await setPackState(data)
                 const formattedData = prepData(data);
@@ -26,7 +26,7 @@ const PackChart = (props) => {
     const reset = async e => {
             e.preventDefault();
             try{
-                const res = await fetch(`http://localhost:3001/packs/${props.packId}`)
+                const res = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}`)
                 const data = await res.json();
                 const formattedData = prepData(data);
                 CreateChart(formattedData);

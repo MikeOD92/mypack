@@ -15,7 +15,7 @@ const Selector = () => {
     useEffect(()=>{
         ( async ()=>{
             try{
-                const response = await fetch('http://localhost:3001/packs/');
+                const response = await fetch('https://my-pack-api.herokuapp.com/packs/');
                 const data = await response.json();
                 setPackList(data)
             }catch(err){
@@ -28,7 +28,7 @@ const Selector = () => {
     useEffect(()=>{
         ( async ()=>{
             try{
-                const packResponse = await fetch(`http://localhost:3001/packs/${thisPack}`);
+                const packResponse = await fetch(`https://my-pack-api.herokuapp.com/packs/${thisPack}`);
                 const data = await packResponse.json();
                 setActivePack(data)
             }catch(err){
@@ -46,7 +46,7 @@ const Selector = () => {
     const createPack = async e =>{
         e.preventDefault();
         try{
-            const response = await fetch('http://localhost:3001/packs/', {
+            const response = await fetch('https://my-pack-api.herokuapp.com/packs/', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -70,7 +70,7 @@ const Selector = () => {
     const newCatagory = async e =>{
         e.preventDefault();
         try{
-            const response = await fetch(`http://localhost:3001/packs/${activePack.id}/catagories/`, {
+            const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${activePack.id}/catagories/`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

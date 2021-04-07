@@ -11,7 +11,7 @@ const CatagoryList = (props) =>{
     const newItem =  async e =>{
         e.preventDefault();
         try{
-            const response = await fetch(`http://localhost:3001/packs/${props.packId}/catagories/${props.id}/items`, {
+            const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}/catagories/${props.id}/items`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -33,7 +33,7 @@ const CatagoryList = (props) =>{
     const editItem = async e =>{
         e.preventDefault();
         try{
-            const response = await fetch(`http://localhost:3001/packs/${props.packId}/catagories/${props.id}/items/${e.target.target}`, {
+            const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}/catagories/${props.id}/items/${e.target.target}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"
@@ -53,7 +53,7 @@ const CatagoryList = (props) =>{
     const removeItem = async e =>{
             e.preventDefault();
                 try{
-                    const response = await fetch(`http://localhost:3001/packs/${props.packId}/catagories/${props.id}/items/${e.target.id}`, {
+                    const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}/catagories/${props.id}/items/${e.target.id}`, {
                         method: 'DELETE',
                         headers: {
                             "Content-Type": "application/json"
