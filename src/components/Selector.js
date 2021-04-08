@@ -123,7 +123,7 @@ const Selector = () => {
                 </form>
             </div>
 
-            <h1> My~pack</h1>
+            <h1> my~pack</h1>
       
             </div> 
              {/* ////////// View pack component//////////// */}
