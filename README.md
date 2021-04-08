@@ -24,4 +24,9 @@ This app was build with:
         + Total pack weight should update without having to hit the chart refresh button
         + Sometimes the app will display/ flip between the current pack chart and previous pack's chart
         
+## Links
+
+    My-Pack
+    [API-repo](https://github.com/MikeOD92/my_pack_api) 
+  
 
