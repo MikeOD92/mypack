@@ -87,7 +87,20 @@ const Selector = () => {
                 catName.current.value = ''
             }
         }
-
+/////////// Delete a pack
+        const deletePack = async e => {
+            e.preventDefault();
+            try{
+                const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${activePack.id}/`, {
+                    method: 'DELETE'
+                })
+                const data = await response.json()
+                setPackList(data);
+                setActivePack(0)
+                }catch(error){
+                    console.error(error)
+                }
+        }
     return(
         <div className="pack-choice">
             <div className="header-bar">
@@ -109,8 +122,11 @@ const Selector = () => {
                     <input type='submit' value='create pack' />
                 </form>
             </div>
-        {/* ////////// View pack component//////////// */}
-            </div>
+
+            <h1> My~pack</h1>
+      
+            </div> 
+             {/* ////////// View pack component//////////// */}
                 {activePack.id? <Pack 
                                     packId={thisPack}
                                     name={activePack.name}
@@ -124,6 +140,10 @@ const Selector = () => {
                             <input type='text' ref={catName}/> 
                             <input type='submit' value='add catagory'/>
                         </form>
+                    </div> : ''}
+                {activePack.id?
+                    <div className='deletePack'>
+                        <label> Delete Pack </label><button onClick={deletePack}/>
                     </div> : ''}
             </div>
         )

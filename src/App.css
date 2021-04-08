@@ -38,8 +38,16 @@ ul{
   padding: 15px;
   margin-bottom: 50px;
   z-index: 100;
+  height: 7vh;
   display: flex;
   flex-direction: row;
+}
+.header-bar h1{
+  position:relative;
+  bottom: 45px;
+  left: 400px;
+  color: #FE5E41;
+  text-shadow: rgba(0,0,0,0.6) 2px 2px 1px;
 }
 .pack{
   display: grid;
@@ -84,7 +92,7 @@ ul{
   color: white;
   font-size: 32px;
   text-shadow: black 2px 2px;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
   padding: 15px;
   border-radius: 10px;
 
@@ -141,9 +149,8 @@ input, select{
 }
 .new-catagory{
   position: relative;
-  left: 55vw;
+  left: 45vw;
   top: 13vh;
-  /* bottom: 35px; */
   margin-bottom: 20px;
   width: 32%;
   padding: 15px;
@@ -153,6 +160,21 @@ input, select{
 .new-catagory form{
   position: relative;
   left: 3%;
+}
+.deletePack{
+  position: relative;
+  float:right;
+  right: 15px;
+  width: 15%;
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid #FE5E41;
+  color: #FE5E41;
+  background-color: rgba(0,0,0,0.7) 
+}
+.deletePack button{
+  position: relative;
+  top: 1px;
 }
 input:focus{
   background-color: white;
