@@ -26,7 +26,7 @@ This app was build with:
         
 ## Links
 
-    My-Pack
-    [API-repo](https://github.com/MikeOD92/my_pack_api) 
-  
+    
+    1. [API](https://github.com/MikeOD92/my_pack_api) 
+    2. My-Pack
 
