@@ -50,7 +50,7 @@ const Pack = (props) => {
     return(
         <div className="pack">
             <div className="chart-container">
-                <h1>{props.name}</h1>
+                <h2>{props.name}</h2>
                 <PackChart packId={props.packId}/>
             </div>
             <div className='catagories-container'>
