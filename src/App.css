@@ -53,8 +53,8 @@ ul{
 }
 .header-bar h1{
   position:relative;
-  bottom: 45px;
-  left: 400px;
+  bottom: 5vh;
+  left: 15%;
   color: #FE5E41;
   text-shadow: rgba(0,0,0,0.6) 2px 2px 1px;
 }
@@ -73,14 +73,14 @@ ul{
   height: 82vh;
   background-color: rgba(0,0,0,0.5);
   color: white;
-  margin-left: 35px;
+  margin-left: 1.5%;
   padding: 15px;
   border-radius: 10px;;
 }
 .chart-container p{
   background-color: rgba(0,0,0,0.75);
   position: relative;
-  bottom: 5%;
+  top: 8%;
   left: 20%;
   padding: 8px;
   width:20vw;
@@ -111,10 +111,9 @@ ul{
 button{
   background-color: rgba(255, 0, 0, 0.6);
   color: white;
-  text-shadow: black 2px 2px;
   width: 25px;
   height: 25px;
-  font-size: 12.5px;
+  font-size: 17px;
   border-radius: 50%;
   position: relative;
   left: 5px;
@@ -125,7 +124,6 @@ button{
   border-radius: 50%;
   position: relative;
   left: -300px;
-  /* right: 308px; */
 }
 .catagory-container form{
   padding: 2px;
@@ -161,11 +159,11 @@ input, select{
 .new-catagory{
   position: relative;
   left: 45vw;
-  top: 12vh;
+  top: 13vh;
   /* bottom: 13px; */
   width: 32%;
   padding: 15px;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.6);
   border-radius: 5px;
 }
 .new-catagory form{
