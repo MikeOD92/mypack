@@ -28,5 +28,5 @@ This app was build with:
 
     
     1. [API](https://github.com/MikeOD92/my_pack_api) 
-    2. My-Pack
+    2. My-Pack https://my-pack.herokuapp.com/
 
