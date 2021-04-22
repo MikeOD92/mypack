@@ -1,6 +1,8 @@
 import React from 'react';
 import Chart from 'chart.js';
 import { useState, useEffect } from 'react';
+import { RiRefreshLine, RiSave3Fill, RiSave3Line } from "react-icons/ri";
+import { IconContext } from 'react-icons/lib';
 
 const PackChart = (props) => {
 
@@ -64,7 +66,7 @@ const PackChart = (props) => {
         return ChartData
     }
 
-    
+    ////////////////////////////////base Weight 
 
         const getBaseWeight = (data) => {
             let items = [];
@@ -91,8 +93,10 @@ const PackChart = (props) => {
         <>
         <canvas id='packChart'></canvas>
         <br/>
+        <IconContext.Provider value={{color: "black", className: "refresh-icon"}}>
         <p> Base weight: {(baseWeight/16).toFixed(2)} lbs / {baseWeight.toFixed(2)}oz</p>
-        <button className="reset-button"onClick={reset}/>
+        <button className="reset-button"onClick={reset}><RiRefreshLine/></button>
+        </IconContext.Provider>
         </>
     )
 }
