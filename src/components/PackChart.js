@@ -1,7 +1,6 @@
 import React from 'react';
 import Chart from 'chart.js';
 import { useState, useEffect } from 'react';
-import { RiRefreshLine, RiSave3Fill, RiSave3Line } from "react-icons/ri";
 import { IconContext } from 'react-icons/lib';
 
 const PackChart = (props) => {
@@ -15,7 +14,7 @@ const PackChart = (props) => {
                 const data = await res.json();
                 const formattedData = prepData(data);
                 getBaseWeight(data);
-                console.log(baseWeight)
+                // console.log(baseWeight)
                 CreateChart(formattedData);
             } catch(err){
                 console.error(err)
@@ -25,22 +24,25 @@ const PackChart = (props) => {
         }
         makeCall();
      
-    },[props])
+    },[props]) // when we change the props we reset the chart based on this useEffect
+    // if we make a new statefull varable and pass it into both the chart and catagory lists, 
+    // when we Setstate in the catagory list it should make this reload as a change to props. 
+
         // makes API call to get data format and prep
-    const reset = async e => {
-            e.preventDefault();
-            try{
-                const res = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}`)
-                const data = await res.json();
-                const formattedData = prepData(data);
-                getBaseWeight(data);
-                CreateChart(formattedData);
-                console.log(baseWeight)
-            } catch(err){
-                console.error(err)
-            } 
+    // const reset = async e => {
+    //         e.preventDefault();
+    //         try{
+    //             const res = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}`)
+    //             const data = await res.json();
+    //             const formattedData = prepData(data);
+    //             getBaseWeight(data);
+    //             CreateChart(formattedData);
+    //             console.log(baseWeight)
+    //         } catch(err){
+    //             console.error(err)
+    //         } 
             
-        }
+    //     }
 
     const prepData = (data) => {
         const ChartData = {
@@ -86,6 +88,11 @@ const PackChart = (props) => {
         const packChart = new Chart(ctx, {
             type:'doughnut',
             data: data, 
+            options: {
+                legend:{
+                    display: false
+                }
+            }
         })
     }
 
@@ -95,7 +102,7 @@ const PackChart = (props) => {
         <br/>
         <IconContext.Provider value={{color: "black", className: "refresh-icon"}}>
         <p> Base weight: {(baseWeight/16).toFixed(2)} lbs / {baseWeight.toFixed(2)}oz</p>
-        <button className="reset-button"onClick={reset}><RiRefreshLine/></button>
+        {/* <button className="reset-button"onClick={reset}><RiRefreshLine/></button> */}
         </IconContext.Provider>
         </>
     )

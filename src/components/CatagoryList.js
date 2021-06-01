@@ -26,6 +26,7 @@ const CatagoryList = (props) =>{
             })
             const data = await response.json();
             setCatagoryState(data);
+            props.setSync(props.sync + 1);
         }catch(error){
             console.error(error)
         }
@@ -47,6 +48,7 @@ const CatagoryList = (props) =>{
             })
             const data = await response.json()
             setCatagoryState(data);
+            props.setSync(props.sync + 1)
             }catch(error){
                 console.error(error)
             }
@@ -62,6 +64,7 @@ const CatagoryList = (props) =>{
                     })
                     const data = await response.json()
                     setCatagoryState(data);
+                    props.setSync(props.sync + 1);
                     }catch(error){
                         console.error(error)
                     }
@@ -86,14 +89,9 @@ const CatagoryList = (props) =>{
                                 <input type='text' defaultValue={item.des} required={true}/>
                                 <input type='float' defaultValue={item.weight} required={true} className="weight"/>
                                 <IconContext.Provider value={{color: "white", className:"save-icon" }}>
-                                <RiSave3Fill/>
-                                <input type='submit' value="save"/> 
-                                {/* <input type='submit' value={RiSave3Fill}/>  */}
-                                {/* <button onClick={editItem}><RiSave3Fill/></button> */}
-                                {/* button could work but we need to find a way to link up the input value which are default passed as the event with a submit event */}
+                                <button className="edit-button" onClick='submit'><RiSave3Fill/></button>
                                 </IconContext.Provider>
-                                
-                                <button onClick={removeItem} id={item.id}>x</button> 
+                                <button  className="delete-button" onClick={removeItem} id={item.id}>x</button> 
                             </form> 
                         </div>
                 )}
