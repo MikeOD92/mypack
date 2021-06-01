@@ -1,11 +1,13 @@
 import React from 'react';
-import { useRef} from 'react';
+import { useRef, useState} from 'react';
 import CatagoryList from './CatagoryList';
 import PackChart from './PackChart';
 
 const Pack = (props) => {
 
     const editCatagoryName = useRef('')
+
+    const [syncModules, setSyncModules] = useState(1); // state is only to sync chart refresh
 
     const updateCatagory = async e => {
             e.preventDefault();
@@ -51,7 +53,7 @@ const Pack = (props) => {
         <div className="pack">
             <div className="chart-container">
                 <h2>{props.name}</h2>
-                <PackChart packId={props.packId}/>
+                <PackChart packId={props.packId} sync={syncModules}/>
             </div>
             <div className='catagories-container'>
    {props.catagories? props.catagories.map((catagory)=>{
@@ -69,6 +71,8 @@ const Pack = (props) => {
                                         packId={props.packId}
                                         activepack={props.activepack}
                                         update={props.setState}
+                                        sync={syncModules}
+                                        setSync={setSyncModules}
                                         />
                         
                     </div>

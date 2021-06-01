@@ -26,6 +26,7 @@ const CatagoryList = (props) =>{
             })
             const data = await response.json();
             setCatagoryState(data);
+            props.setSync(props.sync + 1);
         }catch(error){
             console.error(error)
         }
@@ -47,6 +48,7 @@ const CatagoryList = (props) =>{
             })
             const data = await response.json()
             setCatagoryState(data);
+            props.setSync(props.sync + 1)
             }catch(error){
                 console.error(error)
             }
@@ -62,6 +64,7 @@ const CatagoryList = (props) =>{
                     })
                     const data = await response.json()
                     setCatagoryState(data);
+                    props.setSync(props.sync + 1);
                     }catch(error){
                         console.error(error)
                     }

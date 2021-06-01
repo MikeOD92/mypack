@@ -25,7 +25,10 @@ const PackChart = (props) => {
         }
         makeCall();
      
-    },[props])
+    },[props]) // when we change the props we reset the chart based on this useEffect
+    // if we make a new statefull varable and pass it into both the chart and catagory lists, 
+    // when we Setstate in the catagory list it should make this reload as a change to props. 
+    
         // makes API call to get data format and prep
     const reset = async e => {
             e.preventDefault();
