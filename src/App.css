@@ -72,13 +72,18 @@ ul{
   width: 33vw;
   height: 82vh;
   background-color: rgba(0,0,0,0.5);
+  /* background-color: rgba(255,255,255,0.8); */
   color: white;
   margin-left: 1.5%;
   padding: 15px;
   border-radius: 10px;;
 }
+.chart-container h2{
+  font-size: 36px;
+}
 .chart-container p{
   background-color: rgba(0,0,0,0.75);
+  font-size: 27px;
   position: relative;
   top: 8%;
   left: 20%;
@@ -108,7 +113,7 @@ ul{
   border-radius: 10px;
 
 }
-button{
+.delete-button{
   background-color: rgba(255, 0, 0, 0.6);
   color: white;
   width: 25px;
@@ -118,6 +123,17 @@ button{
   position: relative;
   left: 5px;
   bottom: 6px;
+}
+.edit-button{
+  background-color: black;
+  height:40px;
+  width: 40px;
+}
+.save-icon{
+  position: relative;
+  right:7px;
+  height:40px;
+  width:40px;
 }
 .new-item{
   background-color: #7bbaa8;
