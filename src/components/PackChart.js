@@ -75,10 +75,10 @@ const PackChart = (props) => {
         return(
             <Doughnut 
                 data={chartData} 
-                width={400}
-                height={400}
-                options={{ maintainAspectRatio: false, legend: {display: false}}}
-                />
+                width={350}
+                height={350}
+                options={{ maintainAspectRatio: false}}
+            />
         )
         // const ctx = document.querySelector('#packChart').getContext('2d');
 
