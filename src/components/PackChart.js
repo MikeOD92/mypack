@@ -1,11 +1,14 @@
 import React from 'react';
-import Chart from 'chart.js';
+import {Chart, Doughnut} from 'react-chartjs-2';
 import { useState, useEffect } from 'react';
 import { IconContext } from 'react-icons/lib';
 
 const PackChart = (props) => {
-
+    
     const [baseWeight, setBaseWeight] = useState(0); 
+
+    ///////// use effect to generate chart. 
+    const [chartData, setChart]= useState(null);
 
     useEffect(()=>{ 
         const makeCall = async () => {
@@ -13,36 +16,18 @@ const PackChart = (props) => {
                 const res = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}`)
                 const data = await res.json();
                 const formattedData = prepData(data);
+                // document.getElementById("packChart").clear();
                 getBaseWeight(data);
-                // console.log(baseWeight)
-                CreateChart(formattedData);
-            } catch(err){
+                setChart(formattedData);
+                //createChart(formattedData);
+        } catch(err){
                 console.error(err)
             } 
-            
-        
         }
         makeCall();
-     
-    },[props]) // when we change the props we reset the chart based on this useEffect
-    // if we make a new statefull varable and pass it into both the chart and catagory lists, 
-    // when we Setstate in the catagory list it should make this reload as a change to props. 
+    },[props]);
 
-        // makes API call to get data format and prep
-    // const reset = async e => {
-    //         e.preventDefault();
-    //         try{
-    //             const res = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}`)
-    //             const data = await res.json();
-    //             const formattedData = prepData(data);
-    //             getBaseWeight(data);
-    //             CreateChart(formattedData);
-    //             console.log(baseWeight)
-    //         } catch(err){
-    //             console.error(err)
-    //         } 
-            
-    //     }
+    // prep data for chart
 
     const prepData = (data) => {
         const ChartData = {
@@ -83,22 +68,51 @@ const PackChart = (props) => {
             return setBaseWeight(weight)
         }
 
-    const CreateChart = (data) => {
-        const ctx = document.querySelector('#packChart').getContext('2d');
-        const packChart = new Chart(ctx, {
-            type:'doughnut',
-            data: data, 
-            options: {
-                legend:{
-                    display: false
-                }
-            }
-        })
+    // function to create chart in use effect. 
+
+    const createChart = () => {
+
+        return(
+            <Doughnut 
+                data={chartData} 
+                width={400}
+                height={400}
+                options={{ maintainAspectRatio: false, legend: {display: false}}}
+                />
+        )
+        // const ctx = document.querySelector('#packChart').getContext('2d');
+
+        // if(window.packChart !== undefined){
+        //     window.packChart.destroy();
+        //     window.packChart = new Chart(ctx, {
+        //         type:'doughnut',
+        //         data: data, 
+        //         options: {
+        //             legend:{
+        //                 display: false
+        //             }
+        //         }
+        //     })
+        // }
+
+        // let packChart = new Chart(ctx, {
+        //     type:'doughnut',
+        //     data: data, 
+        //     options: {
+        //         legend:{
+        //             display: false
+        //         }
+        //     }
+        // })
     }
 
     return (
         <>
-        <canvas id='packChart'></canvas>
+        <div>
+            {/* <canvas id='packChart'></canvas> */}
+            {createChart()}
+        </div>
+        
         <br/>
         <IconContext.Provider value={{color: "black", className: "refresh-icon"}}>
         <p> Base weight: {(baseWeight/16).toFixed(2)} lbs / {baseWeight.toFixed(2)}oz</p>

@@ -23,13 +23,6 @@ input{
 
 }
 
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 ul{
   list-style: none;
 }
@@ -71,7 +64,7 @@ ul{
   position: fixed;
   width: 33vw;
   height: 82vh;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.7);
   /* background-color: rgba(255,255,255,0.8); */
   color: white;
   margin-left: 1.5%;
@@ -85,7 +78,7 @@ ul{
   background-color: rgba(0,0,0,0.75);
   font-size: 27px;
   position: relative;
-  top: 8%;
+  bottom: 4%;
   left: 20%;
   padding: 8px;
   width:20vw;
@@ -114,15 +107,15 @@ ul{
 
 }
 .delete-button{
+
   background-color: rgba(255, 0, 0, 0.6);
   color: white;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   font-size: 17px;
-  border-radius: 50%;
+  /* border-radius: 50%;
   position: relative;
-  left: 5px;
-  bottom: 6px;
+  left: 5px; */
 }
 .edit-button{
   background-color: black;
@@ -146,6 +139,14 @@ ul{
 }
 .line-item form{
   width: 100%;
+}
+.line-item button{
+  position: relative;
+  top: 12px;
+}
+.line-item .delete-button{
+  top: -2px;
+  left: 1%;
 }
 .catagory-container p{
   background-color: rgba(0,0,0,0.8);
