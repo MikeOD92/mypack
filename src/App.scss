@@ -6,9 +6,6 @@ body{
   background-attachment: fixed;
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
-  h1, h2{
-    font-family: 'Lato', sans-serif;
-  }
   input{
     font-family: 'Roboto', sans-serif;
   }
@@ -93,8 +90,8 @@ body{
 
   }
   .delete-button{
-    background-color: rgba(255, 0, 0, 0.6);
-    color: white;
+    background-color: #FE5E41;
+    color: black;// colorchange
     width: 40px;
     height: 40px;
     font-size: 26px;
