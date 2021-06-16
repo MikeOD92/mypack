@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import { RiRefreshLine, RiSave3Fill, RiSave3Line } from "react-icons/ri";
+import { RiSave3Fill,RiDeleteBin6Line, RiAddFill } from "react-icons/ri";
 import { IconContext } from 'react-icons/lib';
 
 const CatagoryList = (props) =>{
@@ -55,6 +55,7 @@ const CatagoryList = (props) =>{
         }
     const removeItem = async e =>{
             e.preventDefault();
+            console.log(e.target)
                 try{
                     const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}/catagories/${props.id}/items/${e.target.id}`, {
                         method: 'DELETE',
@@ -88,18 +89,19 @@ const CatagoryList = (props) =>{
                                 <input type='text' defaultValue={item.name} required={true}/>
                                 <input type='text' defaultValue={item.des} required={true}/>
                                 <input type='float' defaultValue={item.weight} required={true} className="weight"/>
-                                <IconContext.Provider value={{color: "white", className:"save-icon" }}>
+                                <IconContext.Provider value={{color: "white", className:"save-icon"}}>
                                 <button className="edit-button" onClick='submit'><RiSave3Fill/></button>
+                                <button  className="delete-button" onClick={removeItem} id={item.id}><RiDeleteBin6Line id={item.id}/></button> 
                                 </IconContext.Provider>
-                                <button  className="delete-button" onClick={removeItem} id={item.id}>x</button> 
                             </form> 
                         </div>
                 )}
                 
             )}
-            <button className='new-item'onClick={newItem}>+</button>
+            <IconContext.Provider value={{color: "black", className: "new-item-icon"}}>
+                <button className='new-item'onClick={newItem}><RiAddFill/></button>
+            </IconContext.Provider>
             <p> Total: {acc.toFixed(2)}oz </p>
-           
         </div>
     )
 }
