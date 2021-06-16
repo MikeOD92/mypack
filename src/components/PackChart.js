@@ -16,10 +16,8 @@ const PackChart = (props) => {
                 const res = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}`)
                 const data = await res.json();
                 const formattedData = prepData(data);
-                // document.getElementById("packChart").clear();
                 getBaseWeight(data);
                 setChart(formattedData);
-                //createChart(formattedData);
         } catch(err){
                 console.error(err)
             } 

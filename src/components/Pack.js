@@ -3,6 +3,9 @@ import { useRef, useState} from 'react';
 import CatagoryList from './CatagoryList';
 import PackChart from './PackChart';
 
+import { RiSave3Fill, RiDeleteBin6Line} from "react-icons/ri";
+import { IconContext } from 'react-icons/lib';
+
 const Pack = (props) => {
 
     const editCatagoryName = useRef('')
@@ -62,8 +65,10 @@ const Pack = (props) => {
 
                         <form className="catagory-name" onSubmit={updateCatagory} target={catagory.id}>
                             <input ref={editCatagoryName} defaultValue={catagory.name} type="text"></input>
-                            <input type="submit" value="update"/>
-                            <button onClick={deleteCatagory} value={catagory.id}>X</button>
+                            <IconContext.Provider value={{color: "white", className:"save-icon" }}>
+                                <button className="edit-button" onClick='submit'><RiSave3Fill/></button>
+                            <button className="delete-button" onClick={deleteCatagory} value={catagory.id}><RiDeleteBin6Line/></button>
+                            </IconContext.Provider>
                         </form>
                     
                         <CatagoryList items={catagory.items}

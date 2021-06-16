@@ -143,7 +143,8 @@ const Selector = () => {
                     </div> : ''}
                 {activePack.id?
                     <div className='deletePack'>
-                        <label> Delete Pack </label><button onClick={deletePack}/>
+                        <label>Delete Pack</label>
+                        <button onClick={deletePack}/>
                     </div> : ''}
             </div>
         )
