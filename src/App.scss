@@ -4,12 +4,10 @@ body{
   // background: linear-gradient( whitesmoke, #6BA292);
   background-color: rgba(245,245,245,0.5);
   background-image: url(https://i.imgur.com/wA4zceL.jpg);
-  
   background-blend-mode: color-burn;
   background-size: cover;
   background-position: bottom;
   background-attachment: fixed;
-  
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
   input{
@@ -36,6 +34,8 @@ body{
     top: -55px;
     right: 10%;
     color: #FFF07C;
+    // color: #f8995a;
+    // probably change to this orange
     font-size: 3.8rem ;    
     text-shadow: rgba(0,0,0,0.6) 2px 2px 1px;
   }
