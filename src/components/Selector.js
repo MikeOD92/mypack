@@ -91,7 +91,7 @@ const Selector = () => {
         const deletePack = async e => {
             e.preventDefault();
             try{
-                const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${activePack.id}/`, {
+                const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${thisPack}/`, {
                     method: 'DELETE'
                 })
                 const data = await response.json()

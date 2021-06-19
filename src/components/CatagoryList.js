@@ -91,7 +91,9 @@ const CatagoryList = (props) =>{
                                 <input type='float' defaultValue={item.weight} required={true} className="weight"/>
                                 <IconContext.Provider value={{color: "white", className:"save-icon"}}>
                                 <button className="edit-button" onClick='submit'><RiSave3Fill/></button>
-                                <button  className="delete-button" onClick={removeItem} id={item.id}><RiDeleteBin6Line id={item.id}/></button> 
+                                <span onClick={removeItem} id={item.id}>
+                                    <button  className="delete-button"><RiDeleteBin6Line/></button> 
+                                </span>
                                 </IconContext.Provider>
                             </form> 
                         </div>

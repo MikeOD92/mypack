@@ -33,6 +33,7 @@ const Pack = (props) => {
             }
             
         const deleteCatagory = async e => {
+            console.log(e.target);
             e.preventDefault();
                 try{
                     const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}/catagories/${e.target.value}`, {
