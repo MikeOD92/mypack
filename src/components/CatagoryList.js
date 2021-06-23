@@ -84,16 +84,16 @@ const CatagoryList = (props) =>{
         <div>
             {catagoryState.map(item => {
                     return(
-                        <div className="line-item">
+                        <div className="line-item" key={item.id}>
                             <form target={item.id} onSubmit={editItem}  > 
                                 <input type='text' defaultValue={item.name} required={true}/>
                                 <input type='text' defaultValue={item.des} required={true}/>
                                 <input type='float' defaultValue={item.weight} required={true} className="weight"/>
                                 <IconContext.Provider value={{color: "white", className:"save-icon"}}>
-                                <button className="edit-button" onClick='submit'><RiSave3Fill/></button>
-                                <span onClick={removeItem} id={item.id}>
-                                    <button  className="delete-button"><RiDeleteBin6Line/></button> 
-                                </span>
+                                <button className="edit-button" type="submit"><RiSave3Fill/></button>
+                                <div >
+                                <button  className="delete-button"onClick={removeItem} id={item.id} ><RiDeleteBin6Line/></button> 
+                                </div>
                                 </IconContext.Provider>
                             </form> 
                         </div>

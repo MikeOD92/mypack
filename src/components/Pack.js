@@ -68,7 +68,7 @@ const Pack = (props) => {
                             <input ref={editCatagoryName} defaultValue={catagory.name} type="text"></input>
                             <IconContext.Provider value={{color: "white", className:"save-icon" }}>
                             <span className="group">
-                            <button className="edit-button" onClick='submit'><RiSave3Fill/></button>
+                            <button className="edit-button" type='submit'><RiSave3Fill/></button>
                             <button className="delete-button" onClick={deleteCatagory} value={catagory.id}><RiDeleteBin6Line/></button>
                             </span>
                             </IconContext.Provider>

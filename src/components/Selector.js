@@ -6,7 +6,7 @@ import Pack from './Pack';
 const Selector = () => {
 
     const [packList, setPackList] = useState([]);
-    const [thisPack, setThisPack] = useState({});
+    const [thisPack, setThisPack] = useState(null);
     const [activePack, setActivePack] = useState({});
 
     const selectedPack = useRef(null);
@@ -25,7 +25,8 @@ const Selector = () => {
     },[]
     )
 //// selected and fetch active pack info
-    useEffect(()=>{
+useEffect(()=>{
+    if(thisPack !== null){
         ( async ()=>{
             try{
                 const packResponse = await fetch(`https://my-pack-api.herokuapp.com/packs/${thisPack}/`);
@@ -35,6 +36,9 @@ const Selector = () => {
                 console.error(err)
             }
         })()
+    }else{
+        console.log('thispack is undefined')
+    } 
     },[thisPack]
     )
 
