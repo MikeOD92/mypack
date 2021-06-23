@@ -22,6 +22,7 @@ body{
     box-shadow: rgba(0,0,0,0.6) 3px 3px 5px;
     width: 100%;
     padding: 20px;
+    margin: 0;
     margin-bottom: 50px;
     z-index: 100;
     height: 55px;
@@ -162,9 +163,10 @@ body{
 
   .catagory-name{
     position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    button{
+      position: relative;
+      top: 15px;
+    }
   input{
     padding: 20px;
     font-size: 26px; 
@@ -245,57 +247,106 @@ body{
 @media only screen and (max-width: 475px) {
   body{
     overflow-x: hidden;
-  }
-  .header-bar{
-    width: 100%;
-    height: 12vh;
-    flex-direction: column;
-    text-align: left;
-  }
-  .header-bar h1{
-    display: none;
-  }
-  .pack{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .chart-container{
-    position: relative;
-    width: 90%;
-    height: 40%;
-    margin: 0 auto;
-    margin-bottom: 7vh;
-    top: 40px;
-  }
-  .chart-container p{
-    width: 80%;
-    left: 9%;
-  }
+    .header-bar{
+      position: relative;
+      height: 320px;
+      flex-direction: column;
+      text-align: left;
+      width: 100vw;
+      margin: 0;
+      h1{
+        left: 22%;
+        top: -30px;
+      }
+      form{
+      position: relative;
+      top: 120px;
+      left: 15px;
+      }
+      }
+    .pack{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      left: 0px;
+      right: 0px;
+      top: -5px;
+      margin: auto 0;
+    .chart-container{
+      position: relative;
+      width: 85%;
+      height: 40%;
+      margin-bottom: 7vh;
+      top: 20px;
+      p{
+      width: 80%;
+      left: 9%;
+    }}
   .catagories-container{
-    display: flex;
-    flex-direction: column;
-    /* align-items: center ; */
-  }
-  .catagory-container{
-    position: relative;
-    left: 5%;
-    font-size: 18px;
-  }
-  .catagory-name{
-    right: 0%;
+      display: flex;
+      flex-direction: column;
+      align-items: center ; 
+    }
+    .catagory-container{
+      position: relative;
+      left: 30px;
+      width: 95%;
+      font-size: 18px;
+    }
+    .catagory-name{
+      right: 0%;
+    }
+    .weight{
+      margin-right: 20px;
+    }
+    .line-item{
+      margin-top: 15px;;
+    }
   }
   .new-catagory{
-    left: 0%;
+    left: 60px;;
+    top: -30px;
+    width: 70%;
   }
   .deletePack{
     width: 20%;
     right: 6%;
-  }
-  button{
-    left: 25px;
-  }
-  .deletePack button{
-    left: 0px;
+    } 
+}
+}
+@media only screen and (max-width: 385px) {
+  body{
+
+    .header-bar{
+      height: 370px;
+      width: 100%;
     }
+    .pack{
+    
+      left: 15px;
+      .chart-container{
+        right: 15px;
+      }
+      .catagory-name{
+        flex-direction: column;
+        button{
+          top: 5px;
+        }
+        .group{
+          width: 80%;
+          flex-direction: row;
+          position: relative;
+          left: 75px;
+          button{
+            margin-right: 30px;
+          }
+        }
+      }
+      .catagory-container{
+        left: 2px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+      }
+    }
+  }
 }

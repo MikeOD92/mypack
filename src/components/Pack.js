@@ -67,8 +67,10 @@ const Pack = (props) => {
                         <form className="catagory-name" onSubmit={updateCatagory} target={catagory.id}>
                             <input ref={editCatagoryName} defaultValue={catagory.name} type="text"></input>
                             <IconContext.Provider value={{color: "white", className:"save-icon" }}>
-                                <button className="edit-button" onClick='submit'><RiSave3Fill/></button>
+                            <span className="group">
+                            <button className="edit-button" onClick='submit'><RiSave3Fill/></button>
                             <button className="delete-button" onClick={deleteCatagory} value={catagory.id}><RiDeleteBin6Line/></button>
+                            </span>
                             </IconContext.Provider>
                         </form>
                     
