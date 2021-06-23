@@ -57,7 +57,7 @@ const CatagoryList = (props) =>{
             e.preventDefault();
             console.log(e.target)
                 try{
-                    const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}/catagories/${props.id}/items/${e.target.id}`, {
+                    const response = await fetch(`https://my-pack-api.herokuapp.com/packs/${props.packId}/catagories/${props.id}/items/${e.target.value}`, {
                         method: 'DELETE',
                         headers: {
                             "Content-Type": "application/json"
@@ -91,9 +91,7 @@ const CatagoryList = (props) =>{
                                 <input type='float' defaultValue={item.weight} required={true} className="weight"/>
                                 <IconContext.Provider value={{color: "white", className:"save-icon"}}>
                                 <button className="edit-button" type="submit"><RiSave3Fill/></button>
-                                <div >
-                                <button  className="delete-button"onClick={removeItem} id={item.id} ><RiDeleteBin6Line/></button> 
-                                </div>
+                                <button  className="delete-button" onClick={removeItem} value={item.id} ><RiDeleteBin6Line targetitem={item.id}/></button> 
                                 </IconContext.Provider>
                             </form> 
                         </div>
